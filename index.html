@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Simple School Portal</title>
+</head>
+<body>
+<script src="script.js"></script>
+    <div class="container">
+        <div class="page" id="landingPage">
+            <h2>Welcome to the School Portal</h2>
+            <label for="userType">Select User Type:</label>
+            <select id="userType">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+            <button onclick="chooseRole()">Proceed</button>
+           
+        </div>
+
+        <div class="page" id="loginPage">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username or Email:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="button" onclick="performLogin()">Login</button>
+            </form>
+        </div>
+        
+
+        <div class="page" id="studentPage">
+            <h2>Welcome Student!</h2>
+            <!-- Student-specific content goes here -->
+        </div>
+
+        <div class="page" id="teacherPage">
+            <h2>Welcome Teacher!</h2>
+            <!-- Teacher-specific content goes here -->
+        </div>
+    </div>
+
+    
+</body>
+</html>
