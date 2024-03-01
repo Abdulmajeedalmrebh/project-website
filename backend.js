@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/attendance', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: false, // Add this line to avoid deprecation warning
 });
 
 app.get('/attendance', async (req, res) => {
