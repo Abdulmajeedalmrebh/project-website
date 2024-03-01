@@ -22,9 +22,9 @@ async function markAttendance() {
         alert('Error marking attendance. Please try again later.');
     }
 }
-<script>
+
     function chooseRole() {
-        var userType = document.getElementById('userType').value;
+       var userType = document.getElementById('userType').value;
 
         // Hide the landing page
         document.getElementById('landingPage').style.display = 'none';
@@ -36,13 +36,12 @@ async function markAttendance() {
             window.location.href = 'teacher.html';  // Replace with the actual filename of your teacher page
         }
     }
-
+    
     // Additional functions for handling login and specific user pages
     // You can implement the login logic and navigate to student/teacher pages based on authentication.
-</script>
 
-// Additional functions for handling login and specific user pages
-// You can implement the login logic and navigate to student/teacher pages based on authentication.
+
+
 
 function toggleDarkMode() {
     var body = document.getElementById('body');

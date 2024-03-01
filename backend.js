@@ -1,12 +1,16 @@
-// backend.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const Attendance = require('./models/attendance');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
+const mongoose = require('mongoose');
+const Attendance = require('./models/attendance'); // Importing Attendance model
+
+// Define the schema for the attendance model
+const attendanceSchema = new mongoose.Schema({
+  userId: { type: String, required: true },
+  date: { type: Date, required: true },
+  status: { type: String, enum: ['present', 'absent'], required: true }
+});
 
 app.use(bodyParser.json());
 
