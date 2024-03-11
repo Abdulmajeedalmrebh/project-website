@@ -1,143 +1,413 @@
+/* Root variables for easy color changes */
 :root {
-    --text-color: black;
-    --background-color: #f6f4f4;
-    --input-background-color: white;
-    --button-background-color: #4caf50;
-    --button-hover-color: #45a049;
+  --text-color: black;
+  --background-color: #f6f4f4;
+  --input-background-color: white;
+  --button-background-color: #4caf50;
+  --button-hover-color: #45a049;
 }
 
+/* General body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: auto;
 }
 
-#attendance-form {
-    background-color: var(--input-background-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: var(--input-background-color);
-    color: var(--text-color);
-}
-
-button {
-    background-color: var(--button-background-color);
-    color: var(--text-color);
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--button-hover-color);
-}
-
-.dark-mode {
-    --text-color: white;
-    --background-color: black;
-    --input-background-color: #333;
-    --button-background-color: #333;
-    --button-hover-color: #666;
-}
-
-#mode-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-}
-/* Bordered form */
-form {
-  border: 3px solid #f1f1f1;
-}
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
+/* Styles for the navigation bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(19, 124, 194, 0.884);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: flex;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 9px;
+  z-index: 10;
+  color: rgb(7, 7, 7);
+  flex-wrap: wrap;
+}
+.nav-links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: flex-start;
+  
+  
+}
+
+.nav-links li {
+  margin-left: 35px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 700px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+}
+
+/* Media Query for Responsive Design 
+@media screen and (min-width: 300px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 50px 9px;
+
+  }
+
+}*/
+
+.cir_border {
+  padding: 6px 20px;
+  font-weight: bold;
+  border: 2px hidden whitesmoke;
+  border-radius: 20px;
+  margin: 0px -10px;
+}
+
+header {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("img/Picture1-removebg-preview.png");
+  background-position: bottom;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.header-content {
+  font-family: var(--ff-lora);
+  letter-spacing: 0.5rem;
+  color: whitesmoke;
+  text-align: center;
+  z-index: 1;
+  padding: 4rem;
+  margin-bottom: 150px;
+}
+
+.header-content a {
+  letter-spacing: 0.1rem;
+}
+
+.header-content h2 {
+  font-size: 4vmin;
+}
+
+.line {
+  width: 150px;
+  height: 4px;
+  background: #fc036b;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.header-content h1 {
+  font-size: 7vmin;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.ctn {
+  font-family: var(--ff-montserrat);
+  font-size: var(--fs-links-btns);
+  font-weight: 700;
+  padding: 13px 50px;
+  background: #fc036b;
+  border-radius: 30px;
+  color: whitesmoke;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  cursor: pointer;
+  display: none;
+}
+/* about */
+#about {
+  width: 100%;
+}
+/* Events */
+section {
+  width: 80%;
+  margin: 80px auto;
+}
+
+
+#about_us {
+  background: url("https://awe365.com/wp-content/uploads/2013/07/adventure-sports-hang-gliding-flickrcc-image-by-Steve-Slater.jpg");
+  width: 100%;
+  height: 630px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 30px 0px 0px 0px;
+}
+
+#about_us div {
+  padding: 10px;
+  display: grid;
+  align-items: center; 
+  grid-template-columns: 2fr 1fr 1fr;
+  column-gap: 5px;
+  position: relative;
+}
+
+
+#about_us div span {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  opacity: 0;
+  left: 80%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: 1s;
+}
+
+#about_us p {
+  width: 43em;
+  color: white;
+  text-align: justify;
+  padding-top: 14em;
+  font-family: "Work Sans", sans-serif;
+  margin-left: 6em;
+}
+
+#about_us p::first-letter {
+  padding-left: 47px;
+  font-size: 55px;
+  color: #fc036b;
+}
+
+/* Styles for the logo in the navigation bar */
+.logo {
+  font-family: var(--ff-rubik-dirt);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding: 0 1.2rem;
+  font-weight: 300;
+  color: rgb(249, 247, 247);
+}
+
+/* Styles for the attendance form */
+#attendance-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+  position:center ;
+}
+
+/* Styles for labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Styles for input fields and select boxes */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+/* Styles for buttons */
+button {
+  background-color: var(--button-background-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Styles for button hover effect */
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Styles for dark mode */
+.dark-mode {
+  --background-color: #30363d;
+  --secondary-color: #0d1117;
+  --tertiary-color: #fff;
+  --fourth-color: #fff;
+  --fifth-color: #fff;
+  --sixth-color: #fff;
+}
+
+/* Dark Mode Styles Scroll Button  */
+.dark .arrow {
+  &::before {
+    border-color: black; 
+  }
+
+  &:after {
+    border-color: black;
+  }
+
+  &:hover::after {
+    border-color: #fc036b;
+  }
+
+  &:hover::before {
+    border-color: #fc036b;
+  }
+}
+
+
+#quote {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(45deg, #fc036b, #fff, #41031d);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 8s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+
+
+
+/* Styles for the dark mode toggle button */
+.toggle-btn {
+  position: absolute;
+  width: 4.8rem;
+  height: 2rem;
+  right: 2rem;
+  top: 2rem;
+  border: 0.29rem solid;
+  border-radius: 2rem;
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  transition: background-color 0.3s;
+}
+
+/* Styles for the inner circle of the toggle button */
+.toggle-btn .inner-circle {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  left: 0.1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--secondary-color);
+}
+
+/* Styles for the active state of the toggle button */
+.toggle-btn.active {
+  background: var(--primary-color);
+  border-color: #0d1117;
+}
+
+/* Styles for the active state of the inner circle of the toggle button */
+.toggle-btn.active .inner-circle {
+  margin-left: 50%;
+  background: #050930;
+  transition: margin-left 0.3s;
+}
+
+/* Styles for the password container */
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Styles for the password input field */
+.password-input {
+  width: 100%;
+  padding: 10px;
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+/* Styles for the eye icon in the password field */
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
-  width: 100%;
 }
 
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-/* Add padding to containers */
+/* Styles for the main container */
 .container {
-  padding: 16px;
+  padding-top: 50px;
+  margin: auto;
+  width: 30%;
+
+}
+/* drop down */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
 }
 
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

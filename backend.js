@@ -4,6 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const Attendance = require('./models/attendance'); // Importing Attendance model
+const passportConfig = require('./passport-config');
+const authenticationRoutes = require('./authenticationRoutes');
 
 // Define the schema for the attendance model
 const attendanceSchema = new mongoose.Schema({
@@ -12,12 +14,16 @@ const attendanceSchema = new mongoose.Schema({
   status: { type: String, enum: ['present', 'absent'], required: true }
 });
 
+app.use(express.urlencoded({ extended: true }));
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
+app.use('/', authenticationRoutes);
 
 mongoose.connect('mongodb://localhost:27017/attendance', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false, // Add this line to avoid deprecation warning
 });
 
 app.get('/attendance', async (req, res) => {

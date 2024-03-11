@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Attendance System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <title>Simple School Portal</title>
+    <script src="script.js"></script>
+</head>
+
+<body id="body">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar glass" style="height: 70px">
+        <span>
+            <a href="#home" style="display: flex; align-items: center">
+                <img class="img" src="img/Picture1-removebg-preview.png" width="100" style="margin: -25px 10px -25px 10px"  />
+                <h1 class="logo">Smart Attendance</h1>
+            </a>
+        </span>
+        <ul class="nav-links">
+            <li>
+                <a href="#home" id="pri" class="cir_border active">Home</a>
+            </li>
+            <li><a href="#events" id="sec" class="cir_border">Events</a></li>
+            
+            <li><a href="#about" id="quint" class="cir_border">About</a></li>
+            
+            <li>
+                <a href="#contact" id="hept" class="cir_border">Contact</a>
+            </li>
+            
+        </ul>
+        <!-- Dark Mode Toggle -->
+        <div class="darkmode">     
+            <div class="toggle-btn" id="icon" onclick="this.classList.toggle('active')">
+                <div class="inner-circle" onclick="toggle()"></div>
+            </div>    
+        </div>
+    </nav>
+<!-- HTML -->
+<div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+  
+    
+
    
-
-<body>
-    <div id="attendance-form">
-        <body id="body">
-        <label for="userId">User ID:</label>
-        <input type="text" id="userId" name="userId" required>
-
-        <label for="user-password">Password: </label>
-        <input type="password" id="user-password" name="user-password">
-
-        <button onclick="markAttendance()">log in</button>
-        <button id="mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
-     <script src="script.js"></script>
-    </div> 
-    </head>
 </body>
+
 </html>
