@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+</head>
+
+<body>
+    <h1>Attendance</h1>
+
+    <div id="attendanceTable"></div>
+
+    <script>
+        // Fetch attendance data from backend API
+        fetch('/attendance')
+            .then(response => response.json())
+            .then(data => {
+                // Display attendance data in a table
+                const attendanceTable = document.getElementById('attendanceTable');
+                const table = document.createElement('table');
+                table.innerHTML = `
+                    <tr>
+                        <th>User ID</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                `;
+
+                data.forEach(entry => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${entry.userId}</td>
+                        <td>${entry.date}</td>
+                        <td>${entry.status}</td>
+                    `;
+                    table.appendChild(row);
+                });
+
+                attendanceTable.appendChild(table);
+            })
+            .catch(error => console.error('Error fetching attendance data:', error));
+    </script>
+</body>
+
+</html>

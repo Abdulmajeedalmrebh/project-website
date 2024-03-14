@@ -13,26 +13,15 @@
 <body id="body">
 
     <!-- Navigation Bar -->
-    <nav class="navbar glass" style="height: 70px">
-        <span>
+    <nav class="navbar " style="height: 70px">
+        <span class="navlogo">
             <a href="#home" style="display: flex; align-items: center">
                 <img class="img" src="img/Picture1-removebg-preview.png" width="100" style="margin: -25px 10px -25px 10px"  />
-                <h1 class="logo">Smart Attendance</h1>
+                <h1 class="logo" >Smart Attendance</h1>
             </a>
+            
         </span>
-        <ul class="nav-links">
-            <li>
-                <a href="#home" id="pri" class="cir_border active">Home</a>
-            </li>
-            <li><a href="#events" id="sec" class="cir_border">Events</a></li>
-            
-            <li><a href="#about" id="quint" class="cir_border">About</a></li>
-            
-            <li>
-                <a href="#contact" id="hept" class="cir_border">Contact</a>
-            </li>
-            
-        </ul>
+        
         <!-- Dark Mode Toggle -->
         <div class="darkmode">     
             <div class="toggle-btn" id="icon" onclick="this.classList.toggle('active')">
@@ -52,6 +41,10 @@
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
             </select>
+
+
+            
+            
 
             <!-- Login Form -->
             <div id="attendance-form" method="get">

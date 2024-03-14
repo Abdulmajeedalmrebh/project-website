@@ -21,6 +21,13 @@ body {
   width: auto;
 }
 
+h1{
+  text-decoration: none;
+  text-decoration-line: none;
+  
+
+}
+
 /* Styles for the navigation bar */
 .navbar {
   position: fixed;
@@ -37,24 +44,55 @@ body {
   color: rgb(7, 7, 7);
   flex-wrap: wrap;
 }
-.nav-links {
-  margin: 0;
-  padding: 0;
+navlogo {
+  padding: 10px;
+  margin: 10px;
+  position: fixed;
+  top: 10;
+  height: 10px;
+  display: flex;
+}
+/*drop menu stule*/
+.sup-menu-warp{
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+}
+.sup-menu{
+  background-color:  none;
+  padding: 20px;
+  margin: 1px;
+}
+.menu{
   display: flex;
   align-items: center;
-  list-style-type: none;
-  justify-content: flex-start;
-  
-  
 }
-
-.nav-links li {
-  margin-left: 35px;
+.menu h3{
+  font-size: 500;
 }
-.nav-links a {
+.menu img{
+  width: 20px;
+  margin-right: 15px;
+}
+.sup-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 10px;
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: white;
+  margin: 12px 0;
 }
+.sub-menu-link p{
+  width: 100%;
+}
+
 
 /* Media Query for Responsive Design */
 @media screen and (max-width: 700px) {
@@ -63,25 +101,6 @@ body {
       align-items: flex-start;
   }
 
-}
-
-/* Media Query for Responsive Design 
-@media screen and (min-width: 300px) {
-  .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 50px 9px;
-
-  }
-
-}*/
-
-.cir_border {
-  padding: 6px 20px;
-  font-weight: bold;
-  border: 2px hidden whitesmoke;
-  border-radius: 20px;
-  margin: 0px -10px;
 }
 
 header {
@@ -94,113 +113,7 @@ header {
   display: flex;
   align-items: end;
   justify-content: center;
-}
-
-.header-content {
-  font-family: var(--ff-lora);
-  letter-spacing: 0.5rem;
-  color: whitesmoke;
-  text-align: center;
-  z-index: 1;
-  padding: 4rem;
-  margin-bottom: 150px;
-}
-
-.header-content a {
-  letter-spacing: 0.1rem;
-}
-
-.header-content h2 {
-  font-size: 4vmin;
-}
-
-.line {
-  width: 150px;
-  height: 4px;
-  background: #fc036b;
-  margin: 10px auto;
-  border-radius: 5px;
-}
-
-.header-content h1 {
-  font-size: 7vmin;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-.ctn {
-  font-family: var(--ff-montserrat);
-  font-size: var(--fs-links-btns);
-  font-weight: 700;
-  padding: 13px 50px;
-  background: #fc036b;
-  border-radius: 30px;
-  color: whitesmoke;
-}
-
-.menu-btn {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 40px;
-  cursor: pointer;
-  display: none;
-}
-/* about */
-#about {
-  width: 100%;
-}
-/* Events */
-section {
-  width: 80%;
-  margin: 80px auto;
-}
-
-
-#about_us {
-  background: url("https://awe365.com/wp-content/uploads/2013/07/adventure-sports-hang-gliding-flickrcc-image-by-Steve-Slater.jpg");
-  width: 100%;
-  height: 630px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 30px 0px 0px 0px;
-}
-
-#about_us div {
-  padding: 10px;
-  display: grid;
-  align-items: center; 
-  grid-template-columns: 2fr 1fr 1fr;
-  column-gap: 5px;
-  position: relative;
-}
-
-
-#about_us div span {
-  margin: 0;
-  position: absolute;
-  top: 60%;
-  opacity: 0;
-  left: 80%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  transition: 1s;
-}
-
-#about_us p {
-  width: 43em;
-  color: white;
-  text-align: justify;
-  padding-top: 14em;
-  font-family: "Work Sans", sans-serif;
-  margin-left: 6em;
-}
-
-#about_us p::first-letter {
-  padding-left: 47px;
-  font-size: 55px;
-  color: #fc036b;
+  
 }
 
 /* Styles for the logo in the navigation bar */
@@ -212,6 +125,8 @@ section {
   padding: 0 1.2rem;
   font-weight: 300;
   color: rgb(249, 247, 247);
+  text-decoration: none;
+  
 }
 
 /* Styles for the attendance form */
@@ -237,7 +152,7 @@ input, select {
   padding: 10px;
   margin-bottom: 16px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   background-color: var(--input-background-color);
   color: var(--text-color);
@@ -258,35 +173,6 @@ button {
 /* Styles for button hover effect */
 button:hover {
   background-color: var(--button-hover-color);
-}
-
-/* Styles for dark mode */
-.dark-mode {
-  --background-color: #30363d;
-  --secondary-color: #0d1117;
-  --tertiary-color: #fff;
-  --fourth-color: #fff;
-  --fifth-color: #fff;
-  --sixth-color: #fff;
-}
-
-/* Dark Mode Styles Scroll Button  */
-.dark .arrow {
-  &::before {
-    border-color: black; 
-  }
-
-  &:after {
-    border-color: black;
-  }
-
-  &:hover::after {
-    border-color: #fc036b;
-  }
-
-  &:hover::before {
-    border-color: #fc036b;
-  }
 }
 
 
@@ -314,45 +200,18 @@ button:hover {
   }
 }
 
-
-
-
-/* Styles for the dark mode toggle button */
-.toggle-btn {
-  position: absolute;
-  width: 4.8rem;
-  height: 2rem;
-  right: 2rem;
-  top: 2rem;
-  border: 0.29rem solid;
-  border-radius: 2rem;
-  border-color: var(--primary-color);
-  background: var(--primary-color);
-  transition: background-color 0.3s;
+  /* Add your CSS styles here */
+  table {
+    width: 100%;
+    border-collapse: collapse;
 }
-
-/* Styles for the inner circle of the toggle button */
-.toggle-btn .inner-circle {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  left: 0.1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  background: var(--secondary-color);
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
 }
-
-/* Styles for the active state of the toggle button */
-.toggle-btn.active {
-  background: var(--primary-color);
-  border-color: #0d1117;
-}
-
-/* Styles for the active state of the inner circle of the toggle button */
-.toggle-btn.active .inner-circle {
-  margin-left: 50%;
-  background: #050930;
-  transition: margin-left 0.3s;
+th {
+    background-color: #f2f2f2;
 }
 
 /* Styles for the password container */
@@ -386,28 +245,15 @@ button:hover {
 }
 /* drop down */
 .dropdown {
+  width: 100%;
+  min-height: 100vh;
+  background: #eceaff;
+  color: #525252;
   position: relative;
-  display: inline-block;
-  
+  display: flexbox;
+  background-color: white;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+.dots{
+width: 120px;
 }

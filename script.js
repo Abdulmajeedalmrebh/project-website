@@ -38,6 +38,56 @@ function viewMarks() {
     // Display the marks data
     displayContent('<h3>Marks</h3>' + marksData);
 }
+// Function to fetch attendance data from the backend
+function fetchAttendanceData() {
+    // Make an AJAX GET request to fetch attendance data from the backend
+    fetch('/attendance')
+        .then(response => response.json())
+        .then(data => {
+            // Display the fetched attendance data
+            displayAttendance(data);
+        })
+        .catch(error => {
+            console.error('Error fetching attendance data:', error);
+        });
+}
+
+// Function to display attendance data
+function displayAttendance(attendanceData) {
+    var attendanceContent = '<h3>Attendance Sheet</h3>';
+    attendanceContent += '<table>';
+    attendanceContent += '<tr><th>Date</th><th>Status</th></tr>';
+
+    attendanceData.forEach(function (entry) {
+        attendanceContent += `<tr><td>${entry.date}</td><td>${entry.status}</td></tr>`;
+    });
+
+    attendanceContent += '</table>';
+
+    document.getElementById('attendanceContent').innerHTML = attendanceContent;
+}
+
+// Function to handle user role selection and redirection
+function chooseRole() {
+    var userType = document.getElementById('userType').value;
+
+    // Hide the landing page
+    document.getElementById('landingPage').style.display = 'none';
+
+    // Redirect to the appropriate page based on the selected user type
+    if (userType === 'student') {
+        window.location.href = 'student.html'; // Replace with the actual filename of your student page
+    } else if (userType === 'teacher') {
+        window.location.href = 'teacher.html'; // Replace with the actual filename of your teacher page
+    }
+}
+
+// Initially fetch attendance data when the page loads
+window.onload = function () {
+    fetchAttendanceData();
+};
+
+// Other functions remain unchanged...
 
 // Function to display content
 function displayContent(content) {
@@ -65,6 +115,8 @@ function goBack() {
     // Redirect back to the student page
     window.location.href = 'student.html';
 }
+
+
 
 // Initially display attendance when the page loads
 window.onload = function () {
