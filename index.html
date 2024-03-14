@@ -6,57 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="login.css">
     <title>Simple School Portal</title>
-    <script src="script.js"></script>
 </head>
 
 <body id="body">
 
     <!-- Navigation Bar -->
-    <nav class="navbar " style="height: 70px">
+    <span class="navbar " style="height: 70px">
         <span class="navlogo">
             <a href="#home" style="display: flex; align-items: center">
                 <img class="img" src="img/Picture1-removebg-preview.png" width="100" style="margin: -25px 10px -25px 10px"  />
-                <h1 class="logo" >Smart Attendance</h1>
+                <h1 class="logo" >Smart Attendance </h1>
             </a>
             
         </span>
         
-        <!-- Dark Mode Toggle -->
-        <div class="darkmode">     
-            <div class="toggle-btn" id="icon" onclick="this.classList.toggle('active')">
-                <div class="inner-circle" onclick="toggle()"></div>
-            </div>    
-        </div>
-    </nav>
-
-    
-
+       
+    </span>
     <div class="container">
         <div class="page" id="landingPage">
-            <!-- User Type Selection -->
-            <h2>Welcome to the School Portal</h2><br>
-            <label for="userType">Select User Type:</label>
-            <select id="userType">
-                <option value="student">Student</option>
-                <option value="teacher">Teacher</option>
-            </select>
-
-
-            
-            
-
-            <!-- Login Form -->
-            <div id="attendance-form" method="get">
-                <label for="userId">User ID:</label>
-                <input type="text" id="userId" name="userId" placeholder="Enter your user Id" required>
-                
-                <label for="user-password">Password: </label>
-                <input type="password" id="user-password" name="user-password" placeholder="Enter your password" required>
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
-    
-                <button onclick="chooseRole()">Log In</button>
+          
+            <h2>Welcome</h2>
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <form action="teacher.html"> <!-- Update action attribute to teacher.html -->
+                        <h1>Teacher</h1>
+                        <input type="text" placeholder="Teacher ID" />
+                        <input type="password" placeholder="Password" />
+                        <a href="#">Forgot your password?</a>
+                        <button type="submit">Sign in</button> <!-- Added type="submit" -->
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="student.html"> <!-- Update action attribute to student.html -->
+                        <h1>Student</h1>
+                        <input type="text" placeholder="Student ID" />
+                        <input type="password" placeholder="Password" />
+                        <a href="#">Forgot your password?</a>
+                        <button type="submit">Sign In</button> <!-- Added type="submit" -->
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Hello</h1>
+                            <p>If you are a Student press here!</p>
+                            <button class="ghost" id="signIn">Change</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello</h1>
+                            <p>If you are a Teacher press here!</p>
+                            <button class="ghost" id="signUp">Change</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+
         </div>
     </div>
 

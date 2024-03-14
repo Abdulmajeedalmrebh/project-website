@@ -1,19 +1,27 @@
 // Import necessary modules
 const express = require('express');
+const axios = require('axios'); // Import Axios for making HTTP requests
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Define routes
+// Serve static files (including attendance.html)
+app.use(express.static(__dirname));
 
-// Route to serve the attendance.html page
-app.get('/attendance.html', (req, res) => {
-  // Assuming attendance.html is in the root directory
-  res.sendFile(__dirname + '/attendance.html');
-});
+// Define a route to fetch attendance data from the backend API
+app.get('/attendance-data', async (req, res) => {
+  try {
+    // Make a GET request to your backend API endpoint to fetch attendance data
+    const response = await axios.get('http://your-backend-api-url/attendance');
+    
+    // Extract attendance data from the response
+    const attendanceData = response.data;
 
-// Redirect route for /attendance.html to a different page (e.g., dashboard)
-app.get('/attendance.html', (req, res) => {
-  res.redirect('/dashboard'); // Replace '/dashboard' with the desired redirect destination
+    // Send the attendance data as a JSON response
+    res.json(attendanceData);
+  } catch (error) {
+    console.error('Error fetching attendance data:', error);
+    res.status(500).json({ error: 'Failed to fetch attendance data' });
+  }
 });
 
 // Start the server

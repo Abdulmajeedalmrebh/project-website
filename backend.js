@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport'); // Add this line to import passport
 const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
@@ -24,7 +26,7 @@ app.use('/', authenticationRoutes);
 mongoose.connect('mongodb://localhost:27017/attendance', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
 
 app.get('/attendance', async (req, res) => {
   try {

@@ -1,18 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 /* Root variables for easy color changes */
 :root {
   --text-color: black;
   --background-color: #f6f4f4;
   --input-background-color: white;
-  --button-background-color: #4caf50;
-  --button-hover-color: #45a049;
+  --button-background-color: #f58505;
+  --button-hover-color: #ff5e00;
 }
 
 /* General body styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  margin: 0;
+  margin: -20px 0 50px;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -24,10 +25,7 @@ body {
 h1{
   text-decoration: none;
   text-decoration-line: none;
-  
-
 }
-
 /* Styles for the navigation bar */
 .navbar {
   position: fixed;
@@ -44,7 +42,7 @@ h1{
   color: rgb(7, 7, 7);
   flex-wrap: wrap;
 }
-navlogo {
+.navlogo {
   padding: 10px;
   margin: 10px;
   position: fixed;
@@ -52,46 +50,7 @@ navlogo {
   height: 10px;
   display: flex;
 }
-/*drop menu stule*/
-.sup-menu-warp{
-  position: absolute;
-  top: 100%;
-  right: 10%;
-  width: 320px;
-}
-.sup-menu{
-  background-color:  none;
-  padding: 20px;
-  margin: 1px;
-}
-.menu{
-  display: flex;
-  align-items: center;
-}
-.menu h3{
-  font-size: 500;
-}
-.menu img{
-  width: 20px;
-  margin-right: 15px;
-}
-.sup-menu hr{
-  border: 0;
-  height: 1px;
-  width: 100%;
-  background: #ccc;
-  margin: 15px 10px;
-}
-.sub-menu-link{
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  margin: 12px 0;
-}
-.sub-menu-link p{
-  width: 100%;
-}
+
 
 
 /* Media Query for Responsive Design */

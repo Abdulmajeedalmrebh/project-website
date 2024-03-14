@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 *{
   margin: 0;
   padding: 0;
@@ -10,11 +12,46 @@
 body{
   background: rgb(226, 226, 226);
 }
-nav{
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(19, 124, 194, 0.884);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 9px;
+  z-index: 10;
+  color: rgb(7, 7, 7);
+  flex-wrap: wrap;
+}
+.navlogo {
+  padding: 10px;
+  margin: 10px;
+  position: fixed;
+  top: 10;
+  height: 10px;
+  display: flex;
+}
+.logo- {
+  font-family: var(--ff-rubik-dirt);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding: 0 1.2rem;
+  font-weight: 300;
+  color: rgb(249, 247, 247);
+  text-decoration: none;
+  
+}
+.nav{
   position: sticky;
   top: 0;
   bottom: 0;
-  height: 100vh;
+  height: 70vh;
   left: 0;
   width: 90px;
   /* width: 280px; */
@@ -159,7 +196,7 @@ a:hover i{
 .attendance-list{
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 150px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
