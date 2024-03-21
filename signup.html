@@ -18,13 +18,12 @@
             <a href="#home" style="display: flex; align-items: center">
                 <img class="img" src="img/Picture1-removebg-preview.png" width="100" style="margin: -25px 10px -25px 10px"  />
                 <h1 class="logo" >Smart Attendance </h1>
-                
             </a>
-           
+            
         </span>
+        
        
     </span>
-    
     <div class="container">
         <div class="page" id="landingPage">
           
@@ -32,24 +31,27 @@
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
                     <form action="teacher.html"> <!-- Update action attribute to teacher.html -->
-                        <h1>Teacher</h1>
-                        <input type="text" placeholder="Teacher ID" />
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Forgot your password?</a>
-                        <p>Don't have an account? <a id="a" href="signup.html">Sign Up</a></p>
-
-                        <button type="submit">Sign in</button> <!-- Added type="submit" -->
-                    </form>
+                        <h1>Create Account for Teacher</h1><br>
+                        
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email"required />
+                        <input type="password" placeholder="Password" required />
+                        <input type="password" placeholder="Confirm Password" required/>
+                        <p>Already have an account? <a id="a" href="index.html">Sign in</a></p>
+                        <button>Sign Up</button> <!-- Added type="submit" -->
+                   </form>
                 </div>
                 <div class="form-container sign-in-container">
                     <form action="student.html"> <!-- Update action attribute to student.html -->
-                        <h1>Student</h1>
-                        <input type="text" placeholder="Student ID" />
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Forgot your password?</a>
-                        <p>Don't have an account? <a id="a" href="signup.html">Sign Up</a></p>
+                        <h1>Create Account for Student</h1><br>
+                        
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" required/>
+                        <input type="password" placeholder="Password" required/>
+                        <input type="password" placeholder="Confirm Password" required/>
+                        <p>Already have an account? <a id="a" href="index.html">Sign in</a></p>
 
-                        <button type="submit">Sign In</button> <!-- Added type="submit" -->
+                        <button>Sign Up</button> <!-- Added type="submit" -->
                     </form>
                 </div>
                 <div class="overlay-container">
