@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/wristband")
+mongoose.connect("mongodb://localhost:27017cs/wristband")
 .then(()=>{
     console.log('mongoose connected');
 })
