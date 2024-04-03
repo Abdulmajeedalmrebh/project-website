@@ -2,7 +2,7 @@
 const express = require('express');
 const axios = require('axios'); // Import Axios for making HTTP requests
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5500;
 
 // Serve static files (including attendance.html)
 app.use(express.static(__dirname));
@@ -11,7 +11,7 @@ app.use(express.static(__dirname));
 app.get('/attendance-data', async (req, res) => {
   try {
     // Make a GET request to your backend API endpoint to fetch attendance data
-    const response = await axios.get('http://your-backend-api-url/attendance');
+    const response = await axios.get('/index.js');
     
     // Extract attendance data from the response
     const attendanceData = response.data;
