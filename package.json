@@ -19,8 +19,9 @@
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
+  
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC"
