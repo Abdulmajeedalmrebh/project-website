@@ -18,11 +18,17 @@ const mongoose=require("mongoose")
 
 mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mongodb.net/?retryWrites=true&w=majority&appName=Wristband')
 .then(()=>{
-    console.log('mongoose connected');
+    app.listen(port, () => {
+    console.log(`http://localhost:${port}`);
+});
+
 })
 .catch((e)=>{
-    console.log('failed mongodb connection');
+    console.log(e);
 })
+
+
+/*
 const db = mongoose.connection;
 const logInSchema=new mongoose.Schema({
     name:{
@@ -37,4 +43,4 @@ const logInSchema=new mongoose.Schema({
 
 const LogInCollection=new mongoose.model('LogInCollection',logInSchema)
 
-module.exports=LogInCollection
+module.exports=LogInCollection*/
