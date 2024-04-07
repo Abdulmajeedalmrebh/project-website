@@ -1,19 +1,5 @@
-
-/**var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/wristband";
-
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("mydb");
-  var myobj = { name: "Company Inc", address: "Highway 37" };
-  dbo.collection("customers").insertOne(myobj, function(err, res) {
-    if (err) throw err;
-    console.log("1 document inserted");
-    db.close();
-  });
-});*/
-const mongoose=require("mongoose")
-
+/*const mongoose=require("mongoose")
+const app = require('./app.js'); 
 
 
 mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mongodb.net/?retryWrites=true&w=majority&appName=Wristband')
@@ -28,19 +14,73 @@ mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mon
 })
 
 
-/*
-const db = mongoose.connection;
-const logInSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
-    },
-    password:{
-        type:String,
-        required:true
+
+ /*try {
+        
+        //find user
+        const findStudent= Student.find((data) => email == data.email)
+        if (!findStudent) {
+            res.status(400).send("wrong email or password");
+        }
+        //compare hashed password
+        const passwordMatch=  await bcrypt.compare(password, findStudent.password);
+        if(passwordMatch) {
+            res.status(200).send("login successful");
+            
+        } else {
+            res.status(400).send("wrong email or password");
+        }
+        
+    } catch (err){
+        res.status(500).send(err)
+    }*/
+
+
+     /*try {
+        
+        //find user
+        const findStudent= Student.find((data) => email == data.email)
+        if (findStudent) {
+            res.status(400).send("wrong email or password");
+        }
+        //hash password
+        const passwordMatch=  await bcrypt.comper(password,findStudent.password);
+        if(passwordMatch) {
+            {Name,Email,Password,ConfirmPassword}create(req.body)
+            res.status(200).send("login sucssasfuly");
+            Student.create(req.body)
+      } else {
+        res.status(400).send("wrong email or password");
     }
-})
+        
+    } catch (err){
+        res.status(500).send(err)
+    }*/
 
-const LogInCollection=new mongoose.model('LogInCollection',logInSchema)
+    
+/*
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});*/
 
-module.exports=LogInCollection*/
+/*
+
+
+//find user
+const findStudent = await Student.findOne({ email: req.body.email });
+//check if user exists
+if (findStudent) {
+    res.status(400).send("user already exists");
+}
+//hash password
+const salt = await bcrypt.genSalt(10);
+const hashedPassword = await bcrypt.hash(req.body.password, salt);
+//create user
+const newStudent = new Student({
+    email: req.body.email,
+    password: <PASSWORD>
+});
+
+//save user
+newStudent.save();
+*/
