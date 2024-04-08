@@ -35,6 +35,7 @@
                 <div class="form-container sign-up-container">
                     <form action="/views/index.ejs" method="post" > <!-- Update action attribute to teacher.html -->
                         <h1>Teacher</h1>
+                        <input type="hidden" name="role" value="teacher">
                         <input type="text" placeholder="Teacher ID" name="TeacherID" />
                         <input type="Email" placeholder="Email" name="Email" required />
                         <input type="password" placeholder="Password" name="Password" required/>
@@ -47,6 +48,7 @@
                 <div class="form-container sign-in-container">
                     <form action="/views/index.ejs" method="post" > <!-- Update action attribute to student.html -->
                         <h1>Student</h1>
+                        <input type="hidden" name="role" value="student">
                         <input type="text" placeholder="Student ID" name="StudentID"  required/>
                         <input type="Email" placeholder="Email" name="Email" required />
                         <input type="password" placeholder="Password" name="Password" required/>

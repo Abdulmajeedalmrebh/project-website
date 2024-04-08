@@ -3,7 +3,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const { Student, Teacher } = require("./models/studentschema");
 const app = express();
-const port = 5000;
+const port = 4000;
 //const db = require("./db")
 const mongoose=require("mongoose")
 
@@ -29,11 +29,11 @@ app.get("/index.ejs",(req, res) => {
     res.render("index");
 });
 
-app.get("/student.ejs",(req, res) => {
+app.get("/student", (req, res) => {
     res.render("student");
 });
 
-app.get("/teacher.ejs",(req, res) => {
+app.get("/teacher", (req, res) => {
     res.render("teacher");
 });
 
@@ -42,54 +42,50 @@ app.get("/teacher.ejs",(req, res) => {
 
 
 
-app.post("/views/index.ejs", async (req, res) => {
-    const { Email, Password } = req.body;
-    const student = await Student.findOne({ Email });
-    if (!student) {
-        return res.status(400).send("Invalid email or password");
-    }
-    // Add password comparison logic here if passwords are hashed
-    if (student.Password !== Password) {
-        return res.status(400).send("Invalid email or password");
-    }
-    res.redirect("/");
-});
 
 app.post("/views/index.ejs", async (req, res) => {
-    const { Email, Password } = req.body;
-    const teacher = await Teacher.findOne({ Email });
-    if (!teacher) {
-        return res.status(400).send("Invalid email or password");
+    const { role, Email, Password } = req.body;
+    if (role === 'student') {
+        const student = await Student.findOne({ Email });
+        if (!student || student.Password !== Password) {
+            return res.status(400).send("Invalid email or password");
+        }
+        res.redirect("/student");
+    } else if (role === 'teacher') {
+        const teacher = await Teacher.findOne({ Email });
+        if (!teacher || teacher.Password !== Password) {
+            return res.status(400).send("Invalid email or password");
+        }
+        res.redirect("/teacher");
+    } else {
+        return res.status(400).send("Invalid role");
     }
-    // Add password comparison logic here if passwords are hashed
-    if (teacher.Password !== Password) {
-        return res.status(400).send("Invalid email or password");
-    }
-    res.redirect("/");
 });
 
 
 
 app.post("/views/signup.ejs", (req, res) => {
     console.log(req.body)
-    Student.create(req.body)
-    .then(() => {
-        res.redirect("/")
-    })
-    .catch((e)=>{
-         console.log(e);
-     });
-});
-
-app.post("/views/signup.ejs", (req, res) => {
-    console.log(req.body)
-    Teacher.create(req.body)
-    .then(() => {
-        res.redirect("/")
-    })
-    .catch((e)=>{
-         console.log(e);
-     });
+    const { role, ...data } = req.body;
+    if (role === 'student') {
+        Student.create(data)
+        .then(() => {
+            res.redirect("/")
+        })
+        .catch((e)=>{
+             console.log(e);
+         });
+    } else if (role === 'teacher') {
+        Teacher.create(data)
+        .then(() => {
+            res.redirect("/")
+        })
+        .catch((e)=>{
+             console.log(e);
+         });
+    } else {
+        res.status(400).send("Invalid role");
+    }
 });
 
 
