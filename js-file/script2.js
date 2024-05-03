@@ -1,56 +1,45 @@
-// Fetch attendance data from backend API
-fetch('/attendance')
-  .then(response => response.json())
-  .then(data => {
-    // Handle fetched attendance data
-    console.log(data);
-    // Update the attendance table in your student.html using the fetched data
-    updateAttendanceTable(data);
-  })
-  .catch(error => console.error('Error fetching attendance data:', error));
-
-// Function to update the attendance table in student.html
-function updateAttendanceTable(data) {
-  const tableBody = document.getElementById('attendanceTableBody');
-  tableBody.innerHTML = ''; // Clear existing table rows
-  data.forEach(entry => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${entry.userId}</td>
-      <td>${entry.date}</td>
-      <td>${entry.status}</td>
-    `;
-    tableBody.appendChild(row);
-  });
-}
-
-// Function to add new attendance record
-function addAttendance(userId, date, status) {
-  // Validate the data before sending the request
-  if (!userId || !date || !status) {
-    console.error('User ID, date, and status are required');
-    return;
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  menuBtnChange(); //calling the function(optional)
+});
+searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+  sidebar.classList.toggle("open");
+  menuBtnChange(); //calling the function(optional)
+});
+// following are the code to change sidebar button(optional)
+function menuBtnChange() {
+  if (sidebar.classList.contains("open")) {
+    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+  } else {
+    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
   }
-
-  // Make a POST request to add the attendance record
-  fetch('/attendance', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ userId, date, status })
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to add attendance record');
-    }
-    console.log('Attendance record added successfully');
-    // Refresh the attendance data after adding a new record
-    fetchAttendanceData();
-  })
-  .catch(error => console.error('Error adding attendance record:', error));
 }
 
-// Example usage:
-// Replace the parameters with actual data obtained from user input or elsewhere
-addAttendance('01', '03-24-22', 'present');
+function submitAttendance() {
+  var checkboxes = document.querySelectorAll('input[name="attendance[]"]');
+  var attendanceData = [];
+  checkboxes.forEach(function(checkbox) {
+      attendanceData.push({
+          id: checkbox.value,
+          present: checkbox.checked
+      });
+  });
+
+  // Using AJAX to send attendance data to the server
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/submitAttendance", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({ attendance: attendanceData }));
+
+  // Handle response from the server if needed
+  xhr.onload = function() {
+      if (xhr.status === 200) {
+          console.log(xhr.responseText);
+          // Reload the page to update attendance marks
+          window.location.reload();
+      }
+  };
+}

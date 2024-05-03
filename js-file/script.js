@@ -14,3 +14,4 @@ signInButton.addEventListener("click", () => {
     // Remove the 'right-panel-active' class from the container to deactivate the right panel animation
     container.classList.remove("right-panel-active");
 });
+

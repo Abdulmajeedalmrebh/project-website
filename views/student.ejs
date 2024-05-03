@@ -49,30 +49,109 @@
         
       </ul>
     </div>
-    <section class="home-section">
-        <div class="text">Dashboard</div>
-    </section>
-    <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
-    let searchBtn = document.querySelector(".bx-search");
-    closeBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("open");
-      menuBtnChange();//calling the function(optional)
-    });
-    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-      sidebar.classList.toggle("open");
-      menuBtnChange(); //calling the function(optional)
-    });
-    // following are the code to change sidebar button(optional)
-    function menuBtnChange() {
-     if(sidebar.classList.contains("open")){
-       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
-     }else {
-       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
-     }
-    }
-    </script>
+
+
+    <div class="attendance-list">
+      <h2>Attendance List</h2>
+      <form id="attendanceForm">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Student ID</th>
+                      <th>Student Name</th>
+                      <th>Attendance</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% students.forEach(function(student) { %>
+                      <tr>
+                          <td><%= student.StudentID%></td>
+                          <td><%= student.Name %></td>
+                          <td>
+                              <input type="checkbox" name="attendance[]" value="<%= student.id %>" data-student-id="<%= student.id %>" <% if(student.present) { %> checked <% } %>>
+                          </td>
+                      </tr>
+                  <% }); %>
+              </tbody>
+          </table>
+  <section class="attendance">
+    <div class="attendance-list">
+      <h1>Attendance List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Depart</th>
+            <th>Date</th>
+            <th>Join Time</th>
+            <th>Logout Time</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Sam David</td>
+            <td>Design</td>
+            <td>03-24-22</td>
+            <td>8:00AM</td>
+            <td>3:00PM</td>
+            <td><button>View</button></td>
+          </tr>
+          <tr class="active">
+            <td>02</td>
+            <td>Balbina Kherr</td>
+            <td>Coding</td>
+            <td>03-24-22</td>
+            <td>9:00AM</td>
+            <td>4:00PM</td>
+            <td><button>View</button></td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Badan John</td>
+            <td>testing</td>
+            <td>03-24-22</td>
+            <td>8:00AM</td>
+            <td>3:00PM</td>
+            <td><button>View</button></td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Sara David</td>
+            <td>Design</td>
+            <td>03-24-22</td>
+            <td>8:00AM</td>
+            <td>3:00PM</td>
+            <td><button>View</button></td>
+          </tr>
+          <!-- <tr >
+            <td>05</td>
+            <td>Salina</td>
+            <td>Coding</td>
+            <td>03-24-22</td>
+            <td>9:00AM</td>
+            <td>4:00PM</td>
+            <td><button>View</button></td>
+          </tr>
+          <tr >
+            <td>06</td>
+            <td>Tara Smith</td>
+            <td>Testing</td>
+            <td>03-24-22</td>
+            <td>9:00AM</td>
+            <td>4:00PM</td>
+            <td><button>View</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>
+</div>
+
+
     <script src="script2.js"></script>
 </body>
 

@@ -7,13 +7,6 @@
 * {
 	box-sizing: border-box;
 }
-:root {
-  --text-color: black;
-  --background-color: #f6f4f4;
-  --input-background-color: white;
-  --button-background-color: #f58505;
-  --button-hover-color: #ff5e00;
-}
 
 /* General body styles */
 body {
@@ -61,15 +54,6 @@ h1{
   height: 10px;
   display:flex;
 }
-.navlogo1 {
-  padding: 10px;
-  margin: 10px;
-  position: relative;
-  right: -15px;
-  bottom: 5px;
-  height: 10px;
-  display:flex;
-}
 
 
 
@@ -82,18 +66,6 @@ h1{
 
 }
 
-header {
-  width: 100vw;
-  height: 100vh;
-  background-image: url("img/Picture1-removebg-preview.png");
-  background-position: bottom;
-  background-attachment: fixed;
-  background-size: cover;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  
-}
 
 /* Styles for the logo in the navigation bar */
 .logo {
@@ -107,16 +79,6 @@ header {
   text-decoration: none;
   
 }
-/* Styles for the attendance form */
-#attendance-form {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  box-sizing: border-box;
-  position:center ;
-}
 
 /* Styles for labels */
 label {
@@ -124,62 +86,6 @@ label {
   margin-bottom: 8px;
 }
 
-/* Styles for input fields and select boxes */
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  background-color: var(--input-background-color);
-  color: var(--text-color);
-}
-
-/* Styles for buttons */
-button {
-  background-color: var(--button-background-color);
-  color: var(--text-color);
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-/* Styles for button hover effect */
-button:hover {
-  background-color: var(--button-hover-color);
-}
-
-
-/* Styles for the password container */
-.password-container {
-  position: relative;
-  width: 100%;
-}
-
-/* Styles for the password input field */
-.password-input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-
-
-/* Styles for the main container */
-.container {
-  padding-top: 50px;
-  margin: auto;
-  width: 30%;
-
-}
-
-.dots{
-width: 120px;
-}
 /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
@@ -199,6 +105,7 @@ width: 120px;
   z-index: 99;
   transition: all 0.5s ease;
 }
+
 .sidebar.open{
   width: 250px;
 }
@@ -352,16 +259,7 @@ width: 120px;
   width: 50px;
   background: none;
 }
-.home-section{
-  position: relative;
-  background: #E4E9F7;
-  min-height: 100vh;
-  top: 0;
-  left: 78px;
-  width: calc(100% - 78px);
-  transition: all 0.5s ease;
-  z-index: 2;
-}
+
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
@@ -375,4 +273,65 @@ width: 120px;
 
 #a{
   color: blue;
+}
+
+/*Attendance List serction  */
+.attendance{
+  padding: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: capitalize;
+}
+.attendance-list{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+table thead tr{
+  color: #fff;
+  background: #34AF6D;
+  text-align: left;
+  font-weight: bold;
+}
+.table th,
+.table td{
+  padding: 12px 15px;
+}
+.table tbody tr{
+  border-bottom: 1px solid #ddd;
+}
+.table tbody tr:nth-of-type(odd){
+  background: #f3f3f3;
+}
+.table tbody tr.active{
+  font-weight: bold;
+  color: #4AD489;
+}
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid #4AD489;
+}
+.table button{
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #4AD489;
+}
+.table button:hover{
+  background: #4AD489;
+  color: #fff;
+  transition: 0.5rem;
 }
