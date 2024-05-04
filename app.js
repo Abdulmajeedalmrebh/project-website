@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bcrypt = require("bcrypt");
-const { Student, Teacher } = require("./models/studentschema");
+const { Student, Teacher, Attendance } = require("./models/studentschema");
 const app = express();
 const port = 4000;
 const mongoose = require("mongoose");
@@ -29,10 +29,15 @@ app.get("/student", (req, res) => {
     res.render("student");
 });
 
+app.get("/profile.ejs", (req, res) => {
+    res.render("profile");
+});
+
 app.get("/teacher", async (req, res) => {
     try {
         const students = await Student.find({});
-        res.render("teacher", { students: students });
+        const attendanceList = await Attendance.find({});
+        res.render("teacher", { students: students, attendanceList: attendanceList });
     } catch (error) {
         console.error("Error fetching students:", error);
         res.status(500).send("Error fetching students");
@@ -64,15 +69,17 @@ app.post("/submitAttendance", async (req, res) => {
 
     try {
         for (let i = 0; i < attendanceData.length; i++) {
-            const studentId = attendanceData[i].StudentID;
-            const studentName = attendanceData[i].Name;
-            const isPresent = attendanceData[i].present;
+            const studentId = attendanceData[i];
+            const student = await Student.findOne({ StudentID: studentId });
+            const isPresent = !student.present; // Toggle attendance
 
-            // Update attendance record in the database
-            await Student.findByIdAndUpdate(studentId, studentName , { $set: { present: isPresent } });
+            // Update or create attendance record in the database
+            await Attendance.findOneAndUpdate({ StudentID: studentId }, { Name: student.Name, State: isPresent }, { upsert: true });
         }
 
-        res.send('Attendance submitted successfully');
+        // Fetch updated attendance list after updating attendance
+        const attendanceList = await Attendance.find({});
+        res.json({ attendanceList: attendanceList });
     } catch (error) {
         console.error("Error updating attendance:", error);
         res.status(500).send("Error updating attendance");
@@ -102,6 +109,7 @@ app.post("/views/signup.ejs", (req, res) => {
         res.status(400).send("Invalid role");
     }
 });
+
 
 mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mongodb.net/?retryWrites=true&w=majority&appName=Wristband')
     .then(() => {

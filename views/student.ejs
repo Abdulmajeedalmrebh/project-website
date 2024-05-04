@@ -39,6 +39,14 @@
            <span class="tooltip">Dashboard</span>
         </li>
 
+        <li>
+          <a style="text-decoration: none;" href="profile.ejs">
+            <i class='bx bx-user'></i>
+            <span class="links_name">profile</span>
+          </a>
+          <span class="tooltip">profile</span>
+        </li>
+        
        <li>
           <a style="text-decoration: none;" href="index.ejs">
             <i class='bx bx-log-out'></i>
@@ -51,104 +59,81 @@
     </div>
 
 
-    <div class="attendance-list">
-      <h2>Attendance List</h2>
-      <form id="attendanceForm">
-          <table>
-              <thead>
-                  <tr>
-                      <th>Student ID</th>
-                      <th>Student Name</th>
-                      <th>Attendance</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <% students.forEach(function(student) { %>
-                      <tr>
-                          <td><%= student.StudentID%></td>
-                          <td><%= student.Name %></td>
-                          <td>
-                              <input type="checkbox" name="attendance[]" value="<%= student.id %>" data-student-id="<%= student.id %>" <% if(student.present) { %> checked <% } %>>
-                          </td>
-                      </tr>
-                  <% }); %>
-              </tbody>
-          </table>
-  <section class="attendance">
-    <div class="attendance-list">
-      <h1>Attendance List</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Depart</th>
-            <th>Date</th>
-            <th>Join Time</th>
-            <th>Logout Time</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>01</td>
-            <td>Sam David</td>
-            <td>Design</td>
-            <td>03-24-22</td>
-            <td>8:00AM</td>
-            <td>3:00PM</td>
-            <td><button>View</button></td>
-          </tr>
-          <tr class="active">
-            <td>02</td>
-            <td>Balbina Kherr</td>
-            <td>Coding</td>
-            <td>03-24-22</td>
-            <td>9:00AM</td>
-            <td>4:00PM</td>
-            <td><button>View</button></td>
-          </tr>
-          <tr>
-            <td>03</td>
-            <td>Badan John</td>
-            <td>testing</td>
-            <td>03-24-22</td>
-            <td>8:00AM</td>
-            <td>3:00PM</td>
-            <td><button>View</button></td>
-          </tr>
-          <tr>
-            <td>04</td>
-            <td>Sara David</td>
-            <td>Design</td>
-            <td>03-24-22</td>
-            <td>8:00AM</td>
-            <td>3:00PM</td>
-            <td><button>View</button></td>
-          </tr>
-          <!-- <tr >
-            <td>05</td>
-            <td>Salina</td>
-            <td>Coding</td>
-            <td>03-24-22</td>
-            <td>9:00AM</td>
-            <td>4:00PM</td>
-            <td><button>View</button></td>
-          </tr>
-          <tr >
-            <td>06</td>
-            <td>Tara Smith</td>
-            <td>Testing</td>
-            <td>03-24-22</td>
-            <td>9:00AM</td>
-            <td>4:00PM</td>
-            <td><button>View</button></td>
-          </tr> -->
-        </tbody>
-      </table>
-    </div>
+    <section class="attendance">
+      <div class="attendance-list">
+        <h1>Attendance List</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Depart</th>
+              <th>Date</th>
+              <th>Join Time</th>
+              <th>Logout Time</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td>Sam David</td>
+              <td>Design</td>
+              <td>03-24-22</td>
+              <td>8:00AM</td>
+              <td>3:00PM</td>
+              <td><button>View</button></td>
+            </tr>
+            <tr class="active">
+              <td>02</td>
+              <td>Balbina Kherr</td>
+              <td>Coding</td>
+              <td>03-24-22</td>
+              <td>9:00AM</td>
+              <td>4:00PM</td>
+              <td><button>View</button></td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td>Badan John</td>
+              <td>testing</td>
+              <td>03-24-22</td>
+              <td>8:00AM</td>
+              <td>3:00PM</td>
+              <td><button>View</button></td>
+            </tr>
+            <tr>
+              <td>04</td>
+              <td>Sara David</td>
+              <td>Design</td>
+              <td>03-24-22</td>
+              <td>8:00AM</td>
+              <td>3:00PM</td>
+              <td><button>View</button></td>
+            </tr>
+            <!-- <tr >
+              <td>05</td>
+              <td>Salina</td>
+              <td>Coding</td>
+              <td>03-24-22</td>
+              <td>9:00AM</td>
+              <td>4:00PM</td>
+              <td><button>View</button></td>
+            </tr>
+            <tr >
+              <td>06</td>
+              <td>Tara Smith</td>
+              <td>Testing</td>
+              <td>03-24-22</td>
+              <td>9:00AM</td>
+              <td>4:00PM</td>
+              <td><button>View</button></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </section>
   </section>
-</section>
 </div>
 
 

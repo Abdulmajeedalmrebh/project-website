@@ -1,3 +1,5 @@
+// script2.js
+
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btn");
 let searchBtn = document.querySelector(".bx-search");
@@ -18,7 +20,37 @@ function menuBtnChange() {
   }
 }
 
+// script2.js
+
+// Function to update attendance marks in the table
+function updateAttendanceMarks(response) {
+  var attendanceData = response.attendanceData;
+  var tableBody = document.querySelector('tbody');
+  tableBody.innerHTML = '';
+  attendanceData.forEach(function(data) {
+      var studentName = data.Name;
+      var isPresent = data.State;
+      var tableRow = document.createElement('tr');
+      var nameCell = document.createElement('td');
+      var statusCell = document.createElement('td');
+      nameCell.textContent = studentName;
+      statusCell.textContent = isPresent ? 'Present' : 'Absent';
+      tableRow.appendChild(nameCell);
+      tableRow.appendChild(statusCell);
+      tableBody.appendChild(tableRow);
+  });
+}
+
+// script2.js
+
+// script2.js
+
+// script2.js
+
+console.log("Script2 loaded successfully");
+
 function submitAttendance() {
+  console.log("Submit button clicked");
   var checkboxes = document.querySelectorAll('input[name="attendance[]"]');
   var attendanceData = [];
   checkboxes.forEach(function(checkbox) {
@@ -27,6 +59,8 @@ function submitAttendance() {
           present: checkbox.checked
       });
   });
+
+  console.log("Attendance Data:", attendanceData);
 
   // Using AJAX to send attendance data to the server
   var xhr = new XMLHttpRequest();
@@ -43,3 +77,5 @@ function submitAttendance() {
       }
   };
 }
+
+
