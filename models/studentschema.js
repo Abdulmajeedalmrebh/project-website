@@ -22,14 +22,14 @@ const TeacherSchema=new schema(
 )
 
 
-const AttendanceSchema=new schema(
-    {
-    Name:String,
-    StudentID:String,
-    State:String,
-},
-{timestamps:true}
-)
+const AttendanceSchema = new schema({
+    Name: String,
+    StudentID: String,
+    State: Boolean, // Keep this as Boolean
+    Status: String, // Add this line
+    Date: { type: Date, default: Date.now }
+}, { timestamps: true });
+
 
 const Student = mongoose.model("Student",StudentSchema);
 const Teacher = mongoose.model("Teacher",TeacherSchema);

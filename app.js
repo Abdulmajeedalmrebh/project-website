@@ -1,5 +1,3 @@
-// app.js
-
 const express = require("express");
 const bcrypt = require("bcrypt");
 const { Student, Teacher, Attendance } = require("./models/studentschema");
@@ -69,12 +67,24 @@ app.post("/submitAttendance", async (req, res) => {
 
     try {
         for (let i = 0; i < attendanceData.length; i++) {
-            const studentId = attendanceData[i];
-            const student = await Student.findOne({ StudentID: studentId });
-            const isPresent = !student.present; // Toggle attendance
+            const studentId = attendanceData[i].id;
+            const isPresent = attendanceData[i].present;
 
-            // Update or create attendance record in the database
-            await Attendance.findOneAndUpdate({ StudentID: studentId }, { Name: student.Name, State: isPresent }, { upsert: true });
+            // Convert isPresent to a string
+            const status = isPresent ? 'present' : 'absent';
+
+            // Fetch student data from the database
+            const student = await Student.findOne({ StudentID: studentId });
+
+            // Check if student exists
+            if (!student) {
+                console.log(`Student with ID ${studentId} not found`);
+                continue; // Skip to next iteration
+            }
+
+            // Create a new attendance record in the database
+            const attendanceRecord = new Attendance({ StudentID: studentId, Name: student.Name, State: isPresent, Status: status, Date: new Date() });
+            await attendanceRecord.save();
         }
 
         // Fetch updated attendance list after updating attendance
@@ -85,6 +95,7 @@ app.post("/submitAttendance", async (req, res) => {
         res.status(500).send("Error updating attendance");
     }
 });
+
 
 app.post("/views/signup.ejs", (req, res) => {
     console.log(req.body)
