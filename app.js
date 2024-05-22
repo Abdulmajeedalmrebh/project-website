@@ -6,14 +6,14 @@ const port = 4000;
 
 // Middleware
 app.set('view engine', 'ejs');
-app.use(express.static('public')); 
+app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'default_secret', 
+    secret: process.env.SESSION_SECRET || 'default_secret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === 'production' } 
+    cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
 // Routes
@@ -22,15 +22,18 @@ const authRoutes = require('./routes/auth');
 const studentRoutes = require('./routes/student');
 const teacherRoutes = require('./routes/teacher');
 const u1Routes = require('./routes/u1');
+const attendanceRoutes = require('./routes/attendance');  // Import the attendance routes
 
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
 app.use('/', studentRoutes);
 app.use('/', teacherRoutes);
 app.use('/', u1Routes);
+app.use('/api', attendanceRoutes);  // Use the attendance routes under the '/api' path
+
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/School')
+mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mongodb.net/?retryWrites=true&w=majority&appName=Wristband')
     .then(() => {
         app.listen(port, () => {
             console.log(`Server running at http://localhost:${port}`);
