@@ -15,3 +15,11 @@ signInButton.addEventListener("click", () => {
     container.classList.remove("right-panel-active");
 });
 
+function prepareAttendanceForm() {
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+        if (!checkbox.checked) {
+            checkbox.checked = true;
+            checkbox.value = 'absent';
+        }
+    });
+}

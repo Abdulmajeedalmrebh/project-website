@@ -1,0 +1,98 @@
+/* teacher.css */
+
+/* General styles for the teacher page */
+body {
+    background-color: #fff0f5;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    padding: auto;
+   
+}
+
+header {
+    background-color: #3b64b0;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+main {
+    
+    padding: 1em;
+    text-align: center;
+}
+
+.container {
+    padding: 2em;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3b64b0;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button {
+    background-color: #3b64b0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #2e4567;
+}
+/* Logout Button Styling */
+.logout {
+    list-style-type: none;
+    text-align: center;
+    position: fixed;
+    right: 2px;
+    background-color: #ffffff;
+    z-index: 1010;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.logout:hover {
+    background-color: rgba(2, 145, 255, 0.433);
+    transition: 2ms;
+}
+form > button {
+    width: 50%;
+}
+
+form >input,select {
+    width: 150px; /* Adjust width */
+    padding: 0.5em;
+    font-size: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+

@@ -1,0 +1,253 @@
+/* Import Fonts and Icons */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: -20px 0 50px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header Styling */
+h1 {
+    text-align: center;
+    margin: 100px 0 30px 0;
+    
+}
+
+/* Logout Button Styling */
+.logout {
+    list-style-type: none;
+    text-align: center;
+    position: fixed;
+    top: 10px;
+    right: 2px;
+    background-color: #ffffff;
+    z-index: 1010;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.logout:hover {
+    background-color: rgba(2, 145, 255, 0.433);
+    transition: 2ms;
+}
+
+/* Table Container Styling */
+.table-container {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Table Styling */
+.table {
+    
+    width: 80%;
+    margin: auto;
+    border: 1px solid #c5caf0;
+}
+
+/* Table Header Styling */
+table thead tr {
+    color: #fff;
+    background: rgba(19, 124, 194, 0.884);
+    text-align: left;
+    font-weight: bold;
+    height: 40px;
+}
+
+/* Table Cell Styling */
+tr td {
+    height: 40px;
+    padding: 20px 25px;
+}
+
+/* Responsive Design for Tables */
+@media (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+    }
+
+    .table-container table {
+        width: 100%;
+        margin-bottom: 1rem; /* Adds space between stacked tables */
+    }
+}
+
+/* Subheader Styling */
+h2 {
+    text-align: center;
+    margin: 30px;
+}
+
+/* Button Styling */
+button {
+    width: 40%;
+    height: 40px;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2a48f5b1;
+    color: #FFFFFF;
+}
+
+button:hover {
+    background-color: rgb(2, 35, 132);
+    transition: 0.5rem;
+}
+
+/* Profile Card Styling */
+.profile-card {
+    max-width: 400px;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #80a7b1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.profile-info {
+    font-size: 16px;
+}
+
+.profile-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.profile-item label {
+    width: 120px;
+    font-weight: bold;
+}
+
+.profile-item span {
+    flex-grow: 1;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Column Layout */
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.column {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Responsive Design for Columns */
+@media (max-width: 768px) {
+    .columns {
+        flex-direction: column;
+    }
+
+    .column {
+        margin: 5px 0;
+    }
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    margin: 20px 0;
+}
+
+form table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+form table, form th, form td {
+    border: 1px solid #ddd;
+}
+
+form th, form td {
+    padding: 10px;
+    text-align: left;
+}
+
+form th {
+    background-color: #4c96af;
+    color: white;
+}
+
+form td input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.update{
+
+
+   
+    padding-top: 500px;
+    width: 100%;
+}
+.aaaa{
+    width: 90%;
+    margin: auto;
+    
+}
+.roww{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+
+}
+
+.attendance-status >table{
+    width: auto;
+    margin: 20px auto;
+}
+
+
+
+
