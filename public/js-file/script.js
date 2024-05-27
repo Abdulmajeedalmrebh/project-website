@@ -23,3 +23,20 @@ function prepareAttendanceForm() {
         }
     });
 }
+
+document.getElementById('logoutButton').addEventListener('click', function() {
+    fetch('/logout', {
+        method: 'GET',
+        credentials: 'same-origin'
+    }).then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
+    });
+
+    // Clear browser history
+    history.pushState(null, null, '/login');
+    window.addEventListener('popstate', function(event) {
+        history.pushState(null, null, '/login');
+    });
+});

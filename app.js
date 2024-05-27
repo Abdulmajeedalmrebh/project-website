@@ -23,14 +23,20 @@ const studentRoutes = require('./routes/student');
 const teacherRoutes = require('./routes/teacher');
 const u1Routes = require('./routes/u1');
 const attendanceRoutes = require('./routes/attendance');  // Import the attendance routes
+const c1Routes = require('./routes/c1');  // Import the c1 routes
 
 app.use('/', indexRoutes);
 app.use('/', authRoutes);
 app.use('/', studentRoutes);
 app.use('/', teacherRoutes);
 app.use('/', u1Routes);
-app.use('/api', attendanceRoutes);  // Use the attendance routes under the '/api' path
+app.use('/', attendanceRoutes);  // Use the attendance routes under the '/api' path
+app.use('/', c1Routes);  // Use the c1 routes
 
+// Sample route to test the setup
+app.get('/api/data', (req, res) => {
+    res.send('Data received');
+});
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mongodb.net/?retryWrites=true&w=majority&appName=Wristband')
@@ -42,5 +48,6 @@ mongoose.connect('mongodb+srv://gintaku07:o44kv0e1Awst9GBg@wristband.yxyzveb.mon
     .catch(error => {
         console.error("Error connecting to MongoDB:", error);
     });
+    
 
 module.exports = app;
